@@ -1,0 +1,25 @@
+class_name: WebGuy
+modules:
+    enabled:
+        - WebDriver
+    config:
+        WebDriver:
+            url: 'http://travis.test'
+            browser: 'chrome'
+            window_size: '1024x1024'
+            wait: 7
+env:
+    travis:
+       modules:
+          config:
+              WebDriver:
+                url: 'http://localhost:8080/'
+                browser: 'chrome'
+                port: 9515
+                wait: 7
+                restart: true
+                window_size: false
+                capabilities:
+                  chromeOptions:
+                    args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-impl-side-painting', '--window-size=1024x1024']
+                    binary: '/usr/bin/google-chrome-stable'
